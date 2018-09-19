@@ -1,9 +1,9 @@
 require 'pry'
 
 def my_all?(collection)
-  block_return_values = []
+  return_values = true
   collection.length.times do |i|
-    block_return_values << yield(collection[i])
+    return_values = return_values ? yield(collection[i]) : return_values
   end
-  !block_return_values.include?(false)
+  return_values
 end
